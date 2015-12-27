@@ -12,3 +12,4 @@
 */
 
 Route::any('/make/start', ['as' => 'makeStart', 'uses' => 'MakeController@start']);
+Route::any('/make/classes', ['as' => 'makeClasses', 'uses' => 'MakeController@classes']);

@@ -11,7 +11,27 @@ class MakeController extends BaseController
 {
     public function start()
     {
-        return View::make('make.start');
+        return View::make('make.start', [
+            'pageTitle' =>  '开始制作',
+            ]);
+    }
+
+    public function classes()
+    {
+        $msg = '';
+        $data = callApi('1.0/album/class/list', []);
+        
+        $lists = [];
+        if ($data->status == 'success') {
+            $lists = $data->result;
+        } else {
+            $msg = $data->message;
+        }
+
+        return View::make('make.classes', [
+            'msg'   =>  $msg,
+            'lists' =>  $lists,
+            'pageTitle' =>  '选择分类',
+        ]);
     }
 }
-

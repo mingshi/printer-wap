@@ -11,7 +11,7 @@ img {
 
 @section('content')
 <img src="/images/start_bg.png" />
-<a class="startBtn" href="">开始制作</a>
+<a class="startBtn" href="{{ URL::route('makeClasses') }}" rel="external" data-ajax="false">开始制作</a>
 @stop
 
 @section('js')
