@@ -38,6 +38,7 @@ App::after(function($request, $response)
  */
 Route::filter('wxLogin', function()
 {
+    /*
     $user_id = Cookie::get('user_id');
     if (!$user_id) {
         $routeName = Route::currentRouteName();
@@ -51,6 +52,7 @@ Route::filter('wxLogin', function()
             return Redirect::route('forbidden');
         }
     }
+     */
 });
 
 

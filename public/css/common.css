@@ -25,3 +25,32 @@
     right: 50%;
     margin-right: -62.5px;
 }
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {background-color:#525252 !important;}
+
+.className {
+    text-shadow: none !important;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #EFEEF6;
+}
+
+#nav {
+    margin-top: 42px;
+}
+
+ul#tabs {
+    width: 100%;
+}
+
+ul#tabs li.swiper-slide {
+    float:left;
+    width: 200px;
+    padding: 20px;
+}
+
+ul#tabs li.swiper-slide img {
+    display: block;
+    width: 100%;
+}
