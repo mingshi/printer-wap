@@ -33,6 +33,37 @@ App::after(function($request, $response)
 |
 */
 
+/**
+ * 以下为检查Cookie。如果没有，需要到weixin服务器拿到openid
+ */
+Route::filter('wxLogin', function()
+{
+    $user_id = Cookie::get('user_id');
+    if (!$user_id) {
+        $routeName = Route::currentRouteName();
+        
+        $uri = $_SERVER['REQUEST_URI'];
+        $redirect_uri = urlencode(URL::route('wxScopeBase'));
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe7d58fa8d7ae3416&redirect_uri=" . $redirect_uri . "&response_type=code&scope=snsapi_base&state=" . urlencode($uri) . "#wechat_redirect";
+        try {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $result = curl_exec($ch);
+            curl_close($ch);
+        } catch (Exception $e) {
+            return Redirect::route('forbidden');
+        }
+    }
+});
+
+
+
+
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())

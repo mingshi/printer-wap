@@ -11,5 +11,10 @@
 |
 */
 
-Route::any('/make/start', ['as' => 'makeStart', 'uses' => 'MakeController@start']);
-Route::any('/make/classes', ['as' => 'makeClasses', 'uses' => 'MakeController@classes']);
+Route::any('/wx/scope_base', ['as' => 'wxScopeBase', 'uses' => 'WxController@scope_base']);
+Route::any('/forbidden', ['as' => 'forbidden', 'uses' => 'ErrorController@forbidden']);
+Route::group(
+    array('before' => array('wxLogin')), function () {
+        Route::any('/make/start', ['as' => 'makeStart', 'uses' => 'MakeController@start']);
+        Route::any('/make/classes', ['as' => 'makeClasses', 'uses' => 'MakeController@classes']);
+});

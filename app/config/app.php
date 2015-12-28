@@ -190,5 +190,8 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 
 	),
+    
+    'wx_AppID'  =>  'wxe7d58fa8d7ae3416',
+    'wx_AppSecret'  =>  '2204083b829c499d245a46849b2befb2',
 
 );
