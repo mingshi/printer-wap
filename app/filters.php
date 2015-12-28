@@ -46,14 +46,7 @@ Route::filter('wxLogin', function()
         $redirect_uri = urlencode(URL::route('wxScopeBase'));
         $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe7d58fa8d7ae3416&redirect_uri=" . $redirect_uri . "&response_type=code&scope=snsapi_base&state=" . urlencode($uri) . "#wechat_redirect";
         try {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $result = curl_exec($ch);
-            curl_close($ch);
+            return Redirect::to($url);
         } catch (Exception $e) {
             return Redirect::route('forbidden');
         }
