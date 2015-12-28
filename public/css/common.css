@@ -47,10 +47,32 @@ ul#tabs {
 ul#tabs li.swiper-slide {
     float:left;
     width: 200px;
-    padding: 20px;
+    text-align:center;
 }
 
 ul#tabs li.swiper-slide img {
     display: block;
-    width: 100%;
+    width: 90%;
+}
+
+.pagination-div {
+    margin-top: 50px;
+    text-align: center;
+}
+
+ul.pagination {
+    list-style: none;
+    display: block;
+}
+
+ul.pagination li {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    border: solid #EFEEF6 1px;
+    display: inline-block;
+}
+
+ul.pagination li.active {
+    background-color: #EFEEF6;
 }

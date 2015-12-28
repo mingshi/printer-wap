@@ -16,7 +16,13 @@
     </ul>
 </nav>
 
-<div class="swiper-pagination"></div>
+<div class="pagination-div">
+    <ul class="pagination">
+        @foreach ($lists as $k => $l)
+        <li {{{ $k == 0 ? 'class=active' : '' }}}></li>
+        @endforeach
+    </ul>
+</div>
 @stop
 
 @section('js')
