@@ -26,7 +26,21 @@ class WxController extends BaseController
             $result = curl_exec($ch);
             curl_close($ch);
 
+            $uri = urldecode($state);
+            $res = json_decode($result, TRUE);
+            $open_id = $res['openid'];
 
+            $data = callApi('1.0/user/wx/info', ['wx_id' => $open_id]);
+            if ($data->status == 'success') {
+                if (!empty($data->result)) {
+                    $id_cookie = Cookie::forever('user_id', $data->result->id);
+                    return Redirect::to($uri)->withCookie($id_cookie);
+                } else {
+                    return Redirect::route('forbidden');
+                }
+            } else {
+                return Redirect::route('forbidden');    
+            }
         } catch (Exception $e) {
             return Redirect::route('forbidden');
         }
