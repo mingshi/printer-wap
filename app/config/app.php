@@ -14,7 +14,7 @@ return array(
 	*/
 
 	'debug' => false,
-
+    'api_host'  =>  'http://api.dayinxiangsh.com/',
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
