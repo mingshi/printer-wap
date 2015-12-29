@@ -1,7 +1,7 @@
 @extends('layouts.frame')
 
 @section('css')
-<link rel="stylesheet" href="/css/swiper.css"/>
+<link rel="stylesheet" href="/css/swiper-3.2.7.min.css"/>
 @stop
 
 @section('content')
@@ -10,7 +10,7 @@
     <ul id="tabs" class="swiper-wrapper nav-list clearfix">
         @foreach ($lists as $key => $t)
         <li class="swiper-slide" data="{{ $t->id }}" rel="{{ $key + 1 }}">
-            <img src="{{ $t->front }}" />
+            <a href="{{ URL::route('makeTemplates', ['id' => $t->id]) }}" rel="external" data-ajax="false"><img src="{{ $t->front }}" /></a>
         </li>
         @endforeach
     </ul>
@@ -18,23 +18,19 @@
 
 <div class="pagination-div">
     <ul class="pagination">
-        @foreach ($lists as $k => $l)
-        <li {{{ $k == 0 ? 'class=active' : '' }}}></li>
-        @endforeach
-    </ul>
 </div>
 @stop
 
 @section('js')
-<script src="/js/swiper.js"></script>
+<script src="/js/swiper-3.2.7.min.js"></script>
 <script type="text/javascript">
     var galleryThumbs = new Swiper('.gallery-thumbs', {
         slidesPerView: 1.5,
-        centeredSlides: false,
-        touchRatio: 1,
-        onSlideChangeEnd: function(swiper){
-            alert('事件触发了;');
-        }
+        centeredSlides: true,
+        //touchRatio: 1,
+        paginationClickable: true,
+        pagination: '.pagination-div',
+        watchActiveIndex: true
     });
 </script>
 @stop

@@ -17,4 +17,5 @@ Route::group(
     array('before' => array('wxLogin')), function () {
         Route::any('/make/start', ['as' => 'makeStart', 'uses' => 'MakeController@start']);
         Route::any('/make/classes', ['as' => 'makeClasses', 'uses' => 'MakeController@classes']);
+        Route::any('/make/templates', ['as' => 'makeTemplates', 'uses' => 'MakeController@templates']);
 });
