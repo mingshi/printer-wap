@@ -32,6 +32,9 @@
         slidesPerView: 1.5,
         centeredSlides: false,
         touchRatio: 1,
+        onSlideChangeEnd: function(swiper){
+            alert('事件触发了;');
+        }
     });
 </script>
 @stop
