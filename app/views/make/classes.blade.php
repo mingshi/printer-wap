@@ -29,7 +29,7 @@
 <script src="/js/swiper.js"></script>
 <script type="text/javascript">
     var galleryThumbs = new Swiper('.gallery-thumbs', {
-        slidesPerView: 2,
+        slidesPerView: 1.5,
         centeredSlides: false,
         touchRatio: 1,
     });
