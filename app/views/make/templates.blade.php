@@ -2,7 +2,7 @@
 
 @section('content')
 <ul class="templates-lists">
-    @if (!empty(@$sources->result))
+    @if (!empty($sources->result))
     @foreach (@$sources->result as $k => $s)
        <li class="{{{ $k % 2 == 0 ? 'left-image' : '' }}}"><img src="{{ $s }}"></li>
     @endforeach
@@ -11,7 +11,7 @@
 
 <nav id="nav" class="swiper-container gallery-thumbs template-tab">
     <ul id="tabs" class="swiper-wrapper nav-list clearfix">
-        @if (!empty(@$lists))
+        @if (!empty($lists->result))
         @foreach (@$lists->result as $key => $t)
         <li class="swiper-slide" data="{{ $t->id }}" rel="{{ $key + 1 }}">{{ $t->name }}</li>
         @endforeach
