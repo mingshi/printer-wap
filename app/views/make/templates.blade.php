@@ -2,7 +2,7 @@
 
 @section('content')
 <ul class="templates-lists">
-    @foreach ($sources->result as $k => $s)
+    @foreach (@$sources->result as $k => $s)
        <li class="{{{ $k % 2 == 0 ? 'left-image' : '' }}}"><img src="{{ $s }}"></li>
     @endforeach
 </ul>
