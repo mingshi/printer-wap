@@ -5,11 +5,11 @@
 @stop
 
 @section('content')
-<div class="className">{{ @$lists[0]->name }}</div>
 <nav id="nav" class="swiper-container gallery-thumbs">
     <ul id="tabs" class="swiper-wrapper nav-list clearfix">
         @foreach ($lists as $key => $t)
         <li class="swiper-slide" data="{{ $t->id }}" rel="{{ $key + 1 }}">
+            <div class="className">{{ $t->name }}</div>
             <a href="{{ URL::route('makeTemplates', ['id' => $t->id]) }}" rel="external" data-ajax="false"><img src="{{ $t->front }}" /></a>
         </li>
         @endforeach
