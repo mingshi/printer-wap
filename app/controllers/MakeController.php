@@ -70,4 +70,8 @@ class MakeController extends BaseController
                 'pageTitle' =>  '选择模板'
             ]);
     }
+
+    public function image()
+    {
+    }
 }

@@ -18,4 +18,8 @@ Route::group(
         Route::any('/make/start', ['as' => 'makeStart', 'uses' => 'MakeController@start']);
         Route::any('/make/classes', ['as' => 'makeClasses', 'uses' => 'MakeController@classes']);
         Route::any('/make/templates', ['as' => 'makeTemplates', 'uses' => 'MakeController@templates']);
+        Route::any('/make/image', ['as' => 'makeImage', 'uses' => 'MakeController@image']);
 });
+
+//一些ajax
+Route::any('/ajax/get_images', ['as' => 'getImages', 'uses' => 'AjaxController@get_images']);
