@@ -73,5 +73,14 @@ class MakeController extends BaseController
 
     public function image()
     {
+        $msg = '';
+        $image_id = Input::get('id', 0);
+
+        
+
+        
+        return View::make('make.image', [
+            
+            ]);
     }
 }
