@@ -25,7 +25,7 @@
 <script src="/js/swiper-3.2.7.min.js"></script>
 <script type="text/javascript">
     var galleryThumbs = new Swiper('.gallery-thumbs', {
-        slidesPerView: 1.5,
+        slidesPerView: 1,
         centeredSlides: true,
         //touchRatio: 1,
         paginationClickable: true,
