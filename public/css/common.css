@@ -56,8 +56,11 @@ ul#tabs li.swiper-slide img {
 }
 
 .pagination-div {
-    margin-top: 10px;
     text-align: center;
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 40px;
 }
 
 ul.pagination {
