@@ -15,4 +15,11 @@ img {
 @stop
 
 @section('js')
+<script type="text/javascript">
+$(function() {
+    var screenHeight = $(document).height();
+    $('img').height(screenHeight);
+    $('img').width(1280 / 2016 * screenHeight);
+});
+</script>
 @stop
