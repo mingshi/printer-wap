@@ -7,6 +7,9 @@
     <a href="javascript:;" class="file">
         <input type="file" name="" id="" />选择文件
     </a>
+    <a href="javascript:;" class="file next">
+        <span>下一步</span>    
+    </a>
 </div>
 @stop
 

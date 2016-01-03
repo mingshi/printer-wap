@@ -158,6 +158,18 @@ ul.templates-lists li img {
     text-shadow: none !important;
 }
 
+.next {
+    float: right;
+}
+
+.next span{
+    width: 20px;
+    height: 100%;
+    margin: 0 auto;
+    line-height: 22px;
+    display: block;
+}
+
 .file input {
     position: absolute;
     font-size: 20px;
