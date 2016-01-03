@@ -76,20 +76,18 @@ class MakeController extends BaseController
         $msg = '';
         $image_id = Input::get('id', 0);
 
-        $data = callApi('1.0/album/image/info', ['image_id' => $image_id]);
+        $image_info = callApi('1.0/album/image/info', ['image_id' => $image_id]);
 
-        $res = [];
-        if ($data->status == 'success') {
-            $res = $data->result;
+        if ($image_info->status && !empty($image_info->result->image) && !empty($image_info->result->template) && !empty($image_info->result->class))   {
+            $data = $image_info->result;
         } else {
             $msg = '获取数据错误';
         }
-
         
         return View::make('make.image', [
                 'msg'   =>  $msg,
                 'pageTitle' =>  '制作照片', 
-                'data'  =>  $res
+                'data'  =>  $data,
             ]);
     }
 }
