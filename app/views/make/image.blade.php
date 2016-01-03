@@ -1,7 +1,7 @@
 @extends('layouts.frame')
 
 @section('content')
-<img style="display:block;" id="template" src="{{ $data->image->source }}" />
+<img style="width: 100%; display:block;" id="template" src="{{ $data->image->source }}" />
 <div id='editor'></div>
 <input type="file" id="upfile" />
 @stop
@@ -13,8 +13,6 @@
 <script src='/js/ImageEditor.js'></script>
 <script type="text/javascript">
 $(function() {
-    var screenHeight = $(document).height();
-    $('img#template').height(screenHeight - 70);
 });
 </script>
 @stop
