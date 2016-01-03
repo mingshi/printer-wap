@@ -3,7 +3,11 @@
 @section('content')
 <img style="width: 100%; display:block;" id="template" src="{{ $data->image->source }}" />
 <div id='editor'></div>
-<input type="file" id="upfile" />
+<div class="image-tools">
+    <a href="javascript:;" class="file">
+        <input type="file" name="" id="" />选择文件
+    </a>
+</div>
 @stop
 
 @section('js')

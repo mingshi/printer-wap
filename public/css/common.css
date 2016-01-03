@@ -134,3 +134,40 @@ ul.templates-lists li img {
     display: block;
     width: 100%;
 }
+
+.image-tools {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 70px;
+    background-color: #525252;
+    border-top: 1px solid #efeef6;
+    max-width: 640px;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background-color: #858585;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #EFEEF6 !important;
+    text-indent: 0;
+    line-height: 28px;
+    width: 33px;
+    text-shadow: none !important;
+}
+
+.file input {
+    position: absolute;
+    font-size: 20px;
+    right: 0;
+    top: 0;
+    opacity: 0i;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-input-text, .ui-input-search {
+    border-style: none !important;
+}
