@@ -143,6 +143,7 @@ ul.templates-lists li img {
     background-color: #525252;
     border-top: 1px solid #efeef6;
     max-width: 640px;
+    z-index: 9999;
 }
 
 .file {
