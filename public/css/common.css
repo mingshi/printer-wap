@@ -157,6 +157,7 @@ ul.templates-lists li img {
     line-height: 28px;
     width: 33px;
     text-shadow: none !important;
+    float: left;
 }
 
 .next {
@@ -183,4 +184,18 @@ ul.templates-lists li img {
 
 .ui-input-text, .ui-input-search {
     border-style: none !important;
+}
+
+.image-ul {
+    float: left;
+    padding: 5px;
+}
+
+.image-ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.image-ul li.active {
+    border: 1px solid #EFEEF6;
 }
