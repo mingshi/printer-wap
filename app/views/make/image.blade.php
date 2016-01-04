@@ -9,7 +9,7 @@
     </a>
     <ul class="image-ul">
     </ul>
-    <a href="javascript:;" class="file next">
+    <a href="javascript:;" class="file next" id="next">
         <span>下一步</span>    
     </a>
 </div>
@@ -39,27 +39,26 @@ $(function() {
             $('#template').hide();
             var images = [];
             if (editor == null) {
-                images = [
-                    {'url':res, 'clickToSelect': true},
-                    {'url':url, 'clickToSelect': false},
-                ];
-            } else {
-                var images = editor.images;
-                images.unshift({'url':res, 'clickToSelect': true});
-            }
-            editor = $('#editor').ImageEditor({
-                imageUrls: images,
-                width: width,
-                height: height,
-                removeIcon: null,
+                images = [{'url':res, 'clickToSelect': true},{'url':url, 'clickToSelect': false}];
+                editor = $('#editor').ImageEditor({
+                    imageUrls: images,
+                    width: width,
+                    height: height,
+                    removeIcon: null,
 
-                onInitCompleted: function() {
-                    editor.selectImage(0); // 初始化完成后，默认选中第一个图片（头像图片）作为当前编辑图片
-                }
-            });
+                    onInitCompleted: function() {
+                        editor.selectImage(0);
+                    }
+                });
+            } else {
+                //var images = editor.images;
+                //images.unshift({'url':res, 'clickToSelect': true});
+                editor.unshiftImage(res, true);
+            }
             var html = '<li><img id="thumb" style="position: relative; width:60px; height: 60px;" src="' + res + '" /><img src="/images/delete.png" style="position: absolute; margin-left:-15px; margin-top:-7px; width: 30px;" id="delete" /></li>';
             $('ul.image-ul').append(html);
             set_id();
+            each_del();
         }
     });
 
@@ -74,7 +73,7 @@ $(function() {
         }
         set_active(0);
         each_click();
-        each_del();
+        //each_del();
         return false;
     }
 
@@ -107,10 +106,15 @@ $(function() {
                 var id = $(this).parent().attr('id');
                 editor.removeImage(id);
                 $(this).parent().remove();
+                set_id();
                 return false;
             });
         });
     }
+
+    var screenWidth = $('body').width();
+    var ulWidth = parseFloat(screenWidth) - 66 - 10 - 48;
+    $('ul.image-ul').width(ulWidth);
 });
 </script>
 @stop

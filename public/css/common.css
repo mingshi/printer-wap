@@ -189,6 +189,7 @@ ul.templates-lists li img {
 .image-ul {
     float: left;
     padding: 5px;
+    overflow: auto;
 }
 
 .image-ul li {

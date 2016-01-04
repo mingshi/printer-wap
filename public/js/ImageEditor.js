@@ -319,7 +319,7 @@
         this._updateImageTransform(image);
       },
 
-      addImage: function(url, select) {
+      unshiftImage: function(url, select) {
         url = this._preProcessImageUrl(url);
         if(select === undefined)
           select = true;
@@ -345,7 +345,58 @@
                 scale: 1
               }
             };
+        this.images.unshift(image);
+        $img.on('load', function() {
+          image.$imgWrapper = $('<span>').append($(this));
+          image.img = this;
+          that._placeImage(image);
 
+          var loaded = 0;
+          that.images.forEach(function(im) {
+            if(im.img)
+              loaded ++;
+          });
+
+          if(loaded == that.images.length) { // all images loaded
+            if(!that.inited) {
+              that.inited = true;
+              that.options.onInitCompleted && that.options.onInitCompleted();
+            } else {
+              //select && that.selectImage(that.images.length - 1); // select the top image
+              select && that.selectImage(0); // select the top image
+            }
+
+            that.options.onImagesLoaded && that.options.onImagesLoaded();
+          }
+        });
+        $img.attr('src', url.url);
+      },
+      addImage: function(url, select) {
+        url = this._preProcessImageUrl(url);
+        if(select === undefined)
+          select = true;
+
+        var $img = $('<img />'),
+            that = this,
+            image = {
+              id: new Date() * 1,
+              url: url.url,
+              closeButtonRequire: url.closeButtonRequire,
+              clickToSelect: url.clickToSelect,
+              onClick: url.onClick,
+              img: null,
+              $imgWrapper: null,
+              $removeIcon: null,
+              order: this.images.length + 50, // starts from 1
+              height: 0, // origin height once placed into the container
+              width: 0, // origin width once placed into the container
+              centerPoint: {x: 0, y: 0},
+              transform: {
+                translate: {x: 0, y: 0},
+                rotation: 0,
+                scale: 1
+              }
+            };
         this.images.push(image);
 
         $img.on('load', function() {
@@ -467,7 +518,7 @@
 
       selectImage: function(index) {
         var targetImage;
-
+       
         if (index >= this.images.length - 1) {
             return;
         }
