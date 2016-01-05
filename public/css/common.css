@@ -200,3 +200,27 @@ ul.templates-lists li img {
 .image-ul li.active {
     border: 1px solid #EFEEF6;
 }
+
+.previous {
+    float: left;
+}
+
+.previous span {
+    display: block;
+    height: 100%;
+    line-height: 22px;
+    margin: 0 auto;
+    width: 20px;
+}
+
+.save {
+    float: right;
+}
+
+.save span {
+    display: block;
+    height: 100%;
+    line-height: 31px;
+    margin: 0 auto;
+    width: 20px;
+}

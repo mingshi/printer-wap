@@ -14,15 +14,14 @@
     </a>
 </div>
 
-<div id="aaa">
-</div>
+<div id="mergeImage"></div>
 <div class="image-tools" id="filter" style="display: none;">
-    <a href="javascript:;" class="file next" id="previous">
+    <a href="javascript:;" class="file previous" id="previous">
         <span>上一步</span>
     </a>
-    <ul class="image-ul">
+    <ul class="filter-ul">
     </ul> 
-    <a href="javascript:;" class="file next" id="save">
+    <a href="javascript:;" class="file save" id="save">
         <span>保存</span>    
     </a>
 </div>
@@ -135,10 +134,21 @@ $(function() {
             return false;
         }
         var cvs = editor.mergeImage();
-        $('#aaa').append(cvs);
         $('#editor').hide();
         $('#image-tools').hide();
         $('#filter').show();
+        
+        $('#mergeImage').html('');
+        $('#mergeImage').append(cvs);
+        $('#mergeImage').show();
+    });
+
+    $('#previous').click(function() {
+        $('#mergeImage').hide();
+        $('#filter').hide();
+
+        $('#image-tools').show();
+        $('#editor').show();
     });
 });
 </script>
