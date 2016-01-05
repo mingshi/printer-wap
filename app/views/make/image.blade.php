@@ -3,7 +3,7 @@
 @section('content')
 <img style="width: 100%; display:block;" id="template" src="{{ $data->image->source }}" />
 <div id='editor'></div>
-<div class="image-tools">
+<div class="image-tools" id="image-tools">
     <a href="javascript:;" class="file">
         <input type="file" name="" id="upfile" />选择文件
     </a>
@@ -11,6 +11,19 @@
     </ul>
     <a href="javascript:;" class="file next" id="next">
         <span>下一步</span>    
+    </a>
+</div>
+
+<div id="aaa">
+</div>
+<div class="image-tools" id="filter" style="display: none;">
+    <a href="javascript:;" class="file next" id="previous">
+        <span>上一步</span>
+    </a>
+    <ul class="image-ul">
+    </ul> 
+    <a href="javascript:;" class="file next" id="save">
+        <span>保存</span>    
     </a>
 </div>
 @stop
@@ -115,6 +128,18 @@ $(function() {
     var screenWidth = $('body').width();
     var ulWidth = parseFloat(screenWidth) - 66 - 10 - 48;
     $('ul.image-ul').width(ulWidth);
+    
+    $('#next').click(function(){
+        if (editor == null || editor.images.length < 2) {
+            alert('你还没有编辑任何图片');
+            return false;
+        }
+        var cvs = editor.mergeImage();
+        $('#aaa').append(cvs);
+        $('#editor').hide();
+        $('#image-tools').hide();
+        $('#filter').show();
+    });
 });
 </script>
 @stop
