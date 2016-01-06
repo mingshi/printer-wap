@@ -10,7 +10,7 @@ img {
 @stop
 
 @section('content')
-<img src="/images/start_bg.png" />
+<img src="/img/start_bg.png" />
 <a class="startBtn" href="{{ URL::route('makeClasses') }}" rel="external" data-ajax="false">开始制作</a>
 @stop
 

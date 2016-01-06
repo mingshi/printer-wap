@@ -186,15 +186,51 @@ ul.templates-lists li img {
     border-style: none !important;
 }
 
-.image-ul {
+.image-ul, .swiper-container {
     float: left;
     padding: 5px;
     overflow: auto;
 }
 
-.image-ul li {
+#filter #nav {
+    margin-top: 0px;
+}
+
+.image-ul li, .filter-ul li {
     display: inline-block;
     margin-right: 15px;
+    text-align: center;
+    color: #EFEEF6;
+    text-shadow: none !important;
+}
+
+.image-tools .swiper-container {
+    height: 60px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.filter-ul {
+    display: block;
+    height: 60px !important;
+    text-align: center;
+}
+
+.filter-ul li {
+    clear: both;
+    width: 60px;
+    font-size: 14px;
+}
+
+#swiper {
+    overflow: hidden;
+    float: left;
+}
+
+.filter-ul li img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
 }
 
 .image-ul li.active {
