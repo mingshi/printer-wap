@@ -66,7 +66,6 @@ class MakeController extends BaseController
             }
         }
 
-        Session::put('album_id', 0);
         $view = View::make('make.templates', [
                 'msg'   =>  $msg,
                 'lists' =>  $lists,
