@@ -225,6 +225,7 @@ ul.templates-lists li img {
 #swiper {
     overflow: hidden;
     float: left;
+    overflow-x: scroll;
 }
 
 .filter-ul li img {
