@@ -23,3 +23,4 @@ Route::group(
 
 //一些ajax
 Route::any('/ajax/get_images', ['as' => 'getImages', 'uses' => 'AjaxController@get_images']);
+Route::any('/ajax/save', ['as' => 'saveImage', 'uses' => 'AjaxController@save']);

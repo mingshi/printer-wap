@@ -27,12 +27,15 @@ class MakeController extends BaseController
         } else {
             $msg = $data->message;
         }
-
-        return View::make('make.classes', [
+        
+        $view = View::make('make.classes', [
             'msg'   =>  $msg,
             'lists' =>  $lists,
             'pageTitle' =>  '选择分类',
         ]);
+        $album_id_cookie = Cookie::forever('album_id', 0);
+
+        return Response::make($view)->withCookie($album_id_cookie);
     }
 
     public function templates()
@@ -90,4 +93,5 @@ class MakeController extends BaseController
                 'data'  =>  $data,
             ]);
     }
+
 }

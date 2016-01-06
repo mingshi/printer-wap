@@ -2,6 +2,9 @@
 
 @section('content')
 <img style="width: 100%; display:block;" id="template" src="{{ $data->image->source }}" />
+<input type="hidden" name="image_id" value="{{ $data->image->id }}" />
+<input type="hidden" name="template_id" value="{{ $data->template->id }}" />
+<input type="hidden" name="class_id" value="{{ $data->class->id }}" />
 <div id='editor'></div>
 <div class="image-tools" id="image-tools">
     <a href="javascript:;" class="file">
@@ -170,6 +173,22 @@ $(function() {
 
         $('#image-tools').show();
         $('#editor').show();
+    });
+
+    $('#save').click(function(){
+        var image_id = $("input[name='image_id']").val();
+        var template_id = $("input[name='template_id']").val();
+        var class_id = $("input[name='class_id']").val();
+        var image_data = $('#template').attr('src'); 
+
+        show_loading();
+        $.ajax({
+            url:"{{ URL::route('saveImage') }}",
+            type: 'POST',
+            data: {'image_id': image_id, 'template_id': template_id, 'class_id': class_id, 'image_data': image_data}
+        }).done(function(result){
+        
+        });    
     });
 });
 </script>
