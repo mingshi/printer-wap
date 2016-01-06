@@ -41,6 +41,9 @@
     <div id="msg" class="msg" style="display: none;">
         {{ @$msg }}
     </div>
+    <div class="loading" style="display: none;">
+        <img src="/jqueryMobile/images/ajax-loader.gif" class="loding-gif" /> 
+    </div>
   </section>
 
 <script src="/js/jquery-1.10.2.min.js"></script>
@@ -66,6 +69,8 @@
         $('#msg').fadeIn(1000);
         setTimeout(function() {$('#msg').fadeOut(1000);}, 2000);
       }
+      var screenHeight = $(document).height();
+      $('.loading').height(screenHeight);
     });
 </script>
 </body>

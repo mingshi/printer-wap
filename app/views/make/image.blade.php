@@ -46,7 +46,7 @@
 @section('js')
 <script src="/js/swiper-3.2.7.min.js"></script>
 <script type="text/javascript" src="/js/alloyimage.js"></script>
-<script type="text/javascript" src="/js/alloy.js"></script>
+<script type="text/javascript" src="/js/a.js"></script>
 <script src="/js/hammer.min.js"></script>
 <script src='/js/ImageEditor.js'></script>
 <script type="text/javascript">
@@ -64,6 +64,7 @@ $(function() {
         reader.readAsDataURL(path);
         reader.onload = function() {
             var res = this.result;
+            $('#template').attr('src', '');
             $('#template').hide();
             var images = [];
             if (editor == null) {
@@ -158,11 +159,13 @@ $(function() {
 
         $('#template').attr('src', cvs.toDataURL());
         $('#template').show();
+        Main.init();
     });
 
     $('#previous').click(function() {
         $('#mergeImage').hide();
         $('#filter').hide();
+        $('#template').attr('src', '');
         $('#template').hide();
 
         $('#image-tools').show();

@@ -12,3 +12,12 @@ function show_alert(msg)
     setTimeout(function() {$('#msg').fadeOut(1000);}, 2000);
 }
 
+function show_loading()
+{
+    $('.loading').show();
+}
+
+function hide_loading()
+{
+    $('.loading').hide();
+}

@@ -260,3 +260,21 @@ ul.templates-lists li img {
     margin: 0 auto;
     width: 20px;
 }
+
+.loading {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    max-width: 640px;
+}
+
+.loding-gif {
+    display: block;
+    margin: 0 auto;
+    top: 50%;
+    position: fixed;
+    left: 43%;
+    width: 15%;
+}
