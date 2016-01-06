@@ -20,21 +20,21 @@
     </a>
     <div id="swiper">
         <ul class="filter-ul ">
-            <li><img src="/img/e1.jpg" />原图</li>
-            <li><img src="/img/e1.png" />美肤</li>
-            <li><img src="/img/e2.png" />素描</li>
-            <li><img src="/img/e3.png" />自然增强</li>
-            <li><img src="/img/e4.png" />紫调</li>
-            <li><img src="/img/e5.png" />柔焦</li>
-            <li><img src="/img/e6.png" />复古</li>
-            <li><img src="/img/e7.png" />黑白</li>
-            <li><img src="/img/e8.png" />lomo</li>
-            <li><img src="/img/e9.png" />亮白增强</li>
-            <li><img src="/img/e10.png" />灰白</li>
-            <li><img src="/img/e11.png" />灰色</li>
-            <li><img src="/img/e12.png" />暖秋</li>
-            <li><img src="/img/e13.png" />木雕</li>
-            <li><img src="/img/e14.png" />粗糙</li>
+            <li class="filterBtn"><img src="/img/e1.jpg" />原图</li>
+            <li class="filterBtn"><img src="/img/e1.png" />美肤</li>
+            <li class="filterBtn"><img src="/img/e2.png" />素描</li>
+            <li class="filterBtn"><img src="/img/e3.png" />自然增强</li>
+            <li class="filterBtn"><img src="/img/e4.png" />紫调</li>
+            <li class="filterBtn"><img src="/img/e5.png" />柔焦</li>
+            <li class="filterBtn"><img src="/img/e6.png" />复古</li>
+            <li class="filterBtn"><img src="/img/e7.png" />黑白</li>
+            <li class="filterBtn"><img src="/img/e8.png" />lomo</li>
+            <li class="filterBtn"><img src="/img/e9.png" />亮白增强</li>
+            <li class="filterBtn"><img src="/img/e10.png" />灰白</li>
+            <li class="filterBtn"><img src="/img/e11.png" />灰色</li>
+            <li class="filterBtn"><img src="/img/e12.png" />暖秋</li>
+            <li class="filterBtn"><img src="/img/e13.png" />木雕</li>
+            <li class="filterBtn"><img src="/img/e14.png" />粗糙</li>
         </ul>
     </div> 
     <a href="javascript:;" class="file save" id="save">

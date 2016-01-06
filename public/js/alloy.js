@@ -40,7 +40,7 @@
             var _this = this;
 
             this.addEvent(".filterBtn", "click", function(e){
-			    var text = this.childNodes[0].nodeValue.replace(/(^\s*)|(\s*$)/g, "");
+			    var text = this.childNodes[1].nodeValue.replace(/(^\s*)|(\s*$)/g, "");
                 var img = document.getElementById("template");
                 var AP = _this.img.clone();
                 if(text == "原图") {
