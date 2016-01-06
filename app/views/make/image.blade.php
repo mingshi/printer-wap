@@ -45,7 +45,7 @@
 
 @section('js')
 <script src="/js/swiper-3.2.7.min.js"></script>
-<script type="text/javascript" src="/js/alloyimage.js"></script>
+<script type="text/javascript" src="/js/a1.js"></script>
 <script type="text/javascript" src="/js/a.js"></script>
 <script src="/js/hammer.min.js"></script>
 <script src='/js/ImageEditor.js'></script>

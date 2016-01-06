@@ -47,8 +47,9 @@
                 } else {
                     show_loading();
                     setTimeout(function(){
-                        AP.ps(text).replace(img);
-                        hide_loading();
+                        AP.ps(text).replace(img).complete(function() {
+                            hide_loading();
+                        });
                     }, 2);
                 }
             });
