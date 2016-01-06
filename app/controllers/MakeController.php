@@ -33,9 +33,9 @@ class MakeController extends BaseController
             'lists' =>  $lists,
             'pageTitle' =>  '选择分类',
         ]);
-        $album_id_cookie = Cookie::forever('album_id', 0);
-
-        return Response::make($view)->withCookie($album_id_cookie);
+        
+        Session::put('album_id', 0);
+        return Response::make($view);
     }
 
     public function templates()
@@ -66,12 +66,14 @@ class MakeController extends BaseController
             }
         }
 
-        return View::make('make.templates', [
+        Session::put('album_id', 0);
+        $view = View::make('make.templates', [
                 'msg'   =>  $msg,
                 'lists' =>  $lists,
                 'sources'   =>  $sources,
                 'pageTitle' =>  '选择模板'
             ]);
+        return Response::make($view);
     }
 
     public function image()

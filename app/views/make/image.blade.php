@@ -185,9 +185,16 @@ $(function() {
         $.ajax({
             url:"{{ URL::route('saveImage') }}",
             type: 'POST',
+            dataType: 'json',
             data: {'image_id': image_id, 'template_id': template_id, 'class_id': class_id, 'image_data': image_data}
         }).done(function(result){
-        
+            hide_loading();
+            if (result.status == 'success') {
+                show_alert('保存成功');
+            } else {
+                alert(result.msg);
+                return false;
+            }
         });    
     });
 });
