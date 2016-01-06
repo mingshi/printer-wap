@@ -1,9 +1,5 @@
 @extends('layouts.frame')
 
-@section('css')
-<link rel="stylesheet" href="/css/swiper-3.2.7.min.css"/>
-@stop
-
 @section('content')
 <img style="width: 100%; display:block;" id="template" src="{{ $data->image->source }}" />
 <div id='editor'></div>
