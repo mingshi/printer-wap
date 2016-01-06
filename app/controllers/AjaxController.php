@@ -51,12 +51,15 @@ class AjaxController extends BaseController
 
         $album_id = Session::get('album_id', 0);
         $user_id = Cookie::get('user_id', 0);
+        var_dump(Session::all());exit;
         if (empty($album_id)) {
             try {
+                $user_id = 1;//TODO 测试
                 $r = callApi('1.0/album/create', ['user_id' => $user_id, 'class_id' => $class_id]);
                 if ($r->status == 'success') {
                     $album_id = $r->result->id;
                     Session::put('album_id', $album_id); 
+                    var_dump(Session::all());exit;
                 } else {
                     $result['status'] = 'err';
                     $result['msg'] = $r->message;
