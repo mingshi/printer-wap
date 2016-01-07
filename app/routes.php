@@ -18,6 +18,7 @@ Route::group(
         Route::any('/make/start', ['as' => 'makeStart', 'uses' => 'MakeController@start']);
         Route::any('/make/classes', ['as' => 'makeClasses', 'uses' => 'MakeController@classes']);
         Route::any('/make/templates', ['as' => 'makeTemplates', 'uses' => 'MakeController@templates']);
+        Route::any('/make/template/info', ['as' => 'templateInfo', 'uses' => 'MakeController@templateInfo']);
         Route::any('/make/image', ['as' => 'makeImage', 'uses' => 'MakeController@image']);
 });
 

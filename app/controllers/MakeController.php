@@ -28,13 +28,12 @@ class MakeController extends BaseController
             $msg = $data->message;
         }
         
-        $view = View::make('make.classes', [
+        $view = View::make('make.classes1', [
             'msg'   =>  $msg,
             'lists' =>  $lists,
             'pageTitle' =>  '选择分类',
         ]);
         
-        Session::put('album_id', 0);
         return Response::make($view);
     }
 
@@ -52,26 +51,37 @@ class MakeController extends BaseController
             $msg = '没有数据';
         }
 
-        $sources = [];
-        if (!empty($lists->result)) {
-            $first_temp = $lists->result[0];
-            $first_temp_id = $first_temp->id;
-            $sources = callApi('1.0/album/template/images', ['template_id' => $first_temp_id]);
-            if ($sources->status == 'error') {
-                $msg = $sources->message;
-            }
-
-            if (empty($sources->result)) {
-                $msg = '没有数据';
-            }
-        }
-
         $view = View::make('make.templates', [
                 'msg'   =>  $msg,
                 'lists' =>  $lists,
-                'sources'   =>  $sources,
                 'pageTitle' =>  '选择模板'
             ]);
+        return Response::make($view);
+    }
+
+    public function templateInfo()
+    {
+        $id = Input::get('id', 0);
+        $msg = '';
+        $lists = [];
+        $data = callApi('1.0/album/template/images', ['template_id' => $id]);
+
+        if ($data->status == 'error') {
+            $msg = $data->message;
+        } else {
+            if (empty($data->result)) {
+                $msg = '没有数据';
+            } else {
+                $lists = $data->result;
+            }
+        }
+
+        $view = View::make('make.templateInfo', [
+            'msg'   =>  $msg,
+            'lists' =>  $lists,
+            'pageTitle' =>  '选择图片',
+        ]);
+
         return Response::make($view);
     }
 

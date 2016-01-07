@@ -2,16 +2,14 @@
 
 @section('content')
 <ul class="templates-lists">
-    @if (!empty($lists->result))
-    @foreach (@$lists->result as $k => $s)
+    @if (!empty($lists))
+    @foreach ($lists as $k => $s)
         <li class="{{{ $k % 2 == 0 ? 'left-image' : '' }}}" data="{{ $s->id }}">
-            <a href="{{ URL::route('templateInfo', ['id' => $s->id]) }}" rel="external" data-ajax="false"><img src="{{ $s->source }}"></a>
-            <div class="className">{{ $s->name }}</div>
+            <a href="{{ URL::route('makeImage', ['id' => $s->id]) }}" rel="external" data-ajax="false"><img src="{{ $s->source }}"></a>
         </li>
     @endforeach
     @endif
 </ul>
-
 @stop
 
 @section('js')
