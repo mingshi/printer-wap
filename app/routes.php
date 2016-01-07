@@ -34,6 +34,10 @@ Route::group(
 
         //产品介绍
         Route::any('/product', ['as' => 'product', 'uses' => 'AboutController@product']);
+
+        //活动列表
+        Route::any('/activity/list', ['as' => 'activityList', 'uses' => 'ActivityController@lists']);
+        Route::any('/activity/info', ['as' => 'activityInfo', 'uses' => 'ActivityController@info']);
 });
 
 //一些ajax
