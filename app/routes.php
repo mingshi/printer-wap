@@ -31,6 +31,9 @@ Route::group(
 
         //关于我们
         Route::any('/about', ['as' => 'about', 'uses' => 'AboutController@index']);
+
+        //产品介绍
+        Route::any('/product', ['as' => 'product', 'uses' => 'AboutController@product']);
 });
 
 //一些ajax

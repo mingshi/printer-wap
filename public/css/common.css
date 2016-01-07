@@ -380,3 +380,33 @@ ul.album-info li img#select {
     font-size: 13px;
     text-indent:2em;
 }
+
+.pName {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    color: #313131;
+    font-size: 15px;
+}
+
+.yName {
+    margin-top: 5px;
+}
+
+.separation {
+    margin: 0 auto;
+    height: 1px;
+    background-color: #313131;
+    width: 30%;
+    margin-top: 5px;
+}
+
+.des {
+    margin-top: 10px;
+    color: #313131;
+    font-size: 15px;
+}
+
+.product-bottom {
+    margin-bottom: 40px;
+}

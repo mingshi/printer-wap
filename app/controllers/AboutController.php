@@ -15,5 +15,12 @@ class AboutController extends BaseController
             'pageTitle' =>  '关于我们'
             ]);
     }
+
+    public function product()
+    {
+        return View::make('about.product', [
+            'pageTitle' =>  '产品介绍',
+            ]);
+    }
 }
 
