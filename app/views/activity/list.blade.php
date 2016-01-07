@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+@if (isset($lists['active']))
 @foreach($lists['active'] as $a)
 <div class="about-us" data="{{ $a->id }}">
     <span class="title">{{ $a->subject }}</span>
@@ -17,8 +18,10 @@
 </div>
 <div style="margin-top: 10px"></div>
 @endforeach
+@endif
 <div style="margin-top: 15px"></div>
 <img src="/img/history.png" style="width: 110px;" />
+@if(isset($lists['stop']))
 @foreach($lists['stop'] as $a)
 <div class="about-us" data="{{ $a->id }}">
     <span class="title">{{ $a->subject }}</span>
@@ -29,6 +32,7 @@
 </div>
 <div style="margin-top: 10px"></div>
 @endforeach
+@endif
 @stop
 
 @section('js')
