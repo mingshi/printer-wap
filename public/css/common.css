@@ -359,3 +359,24 @@ ul.album-info li img#select {
     line-height: 70px;
     cursor: pointer;
 }
+
+.about-us {
+    padding: 25px 15px 25px 15px;
+}
+
+.about-us span.title {
+    font-size: 18px;
+    color: #303030;
+}
+
+.about-us img {
+    display: block;
+    width: 100%;
+}
+
+.about-us p {
+    margin-top: 25px;
+    color: #313131;
+    font-size: 13px;
+    text-indent:2em;
+}

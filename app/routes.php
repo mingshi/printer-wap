@@ -28,6 +28,9 @@ Route::group(
 
         //下单
         Route::any('/order/create', ['as' => 'orderCreate', 'uses' => 'OrderController@create']);
+
+        //关于我们
+        Route::any('/about', ['as' => 'about', 'uses' => 'AboutController@index']);
 });
 
 //一些ajax
