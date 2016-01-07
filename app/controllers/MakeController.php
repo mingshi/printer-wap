@@ -64,6 +64,7 @@ class MakeController extends BaseController
         $id = Input::get('id', 0);
         $msg = '';
         $lists = [];
+        $album_id = Input::get('album_id', 0);
         $data = callApi('1.0/album/template/images', ['template_id' => $id]);
 
         if ($data->status == 'error') {
@@ -80,6 +81,7 @@ class MakeController extends BaseController
             'msg'   =>  $msg,
             'lists' =>  $lists,
             'pageTitle' =>  '选择图片',
+            'album_id' => $album_id
         ]);
 
         return Response::make($view);
@@ -89,6 +91,7 @@ class MakeController extends BaseController
     {
         $msg = '';
         $image_id = Input::get('id', 0);
+        $album_id = Input::get('album_id', 0);
 
         $image_info = callApi('1.0/album/image/info', ['image_id' => $image_id]);
 
@@ -102,6 +105,7 @@ class MakeController extends BaseController
                 'msg'   =>  $msg,
                 'pageTitle' =>  '制作照片', 
                 'data'  =>  $data,
+                'album_id'  =>  $album_id
             ]);
     }
 

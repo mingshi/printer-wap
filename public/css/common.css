@@ -278,3 +278,84 @@ ul.templates-lists li img {
     left: 43%;
     width: 15%;
 }
+
+ul.album-info li {
+    position: relative;
+}
+
+ul.album-info li img#select {
+    width: 26px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+}
+
+.album-info-btn {
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+    text-align: center;
+    line-height: 70px;
+    color: #EFEEF6 !important;
+    text-shadow: none !important;
+    cursor: pointer;
+    width: 40%;
+}
+
+.album-info-btn.left {
+    width: 30%
+}
+
+.album-info-btn.right {
+    width: 30%
+}
+
+.order-input {
+    background-color: transparent;
+    width: 100%;
+    margin-top: 20px;
+    height: 30px;
+    margin-left: 10px;
+    font-size: 16px;
+	line-height: 30px;
+	color: #EFEEF6;
+	border: none;
+	border-bottom: 1px solid;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #c9c9c9;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #c9c9c9;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #c9c9c9;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #c9c9c9;
+}
+
+.input-label {
+	color: #efeef6;
+    float: left;
+    font-size: 16px !important;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px !important;
+    margin-top: 20px !important;
+    text-shadow: none;
+    width: 15%;
+}
+
+#submit-order {
+	text-shadow: none !important;
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    color: #EFEEF6;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}

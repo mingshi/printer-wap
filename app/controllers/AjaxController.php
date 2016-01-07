@@ -32,6 +32,7 @@ class AjaxController extends BaseController
         $template_id = Input::get('template_id', 0);
         $class_id = Input::get('class_id', 0);
         $image_data = Input::get('image_data', '');
+        $album_id = Input::get('album_id', 0);
 
         $result = [
             'status'    =>  'err',
@@ -49,17 +50,13 @@ class AjaxController extends BaseController
         //在这里直接把图片保存到磁盘//TODO 
         file_put_contents($path, $blob);
 
-        $album_id = Session::get('album_id', 0);
         $user_id = Cookie::get('user_id', 0);
-        var_dump(Session::all());exit;
+        $user_id = 9;//TODO 测试
         if (empty($album_id)) {
             try {
-                $user_id = 1;//TODO 测试
-                $r = callApi('1.0/album/create', ['user_id' => $user_id, 'class_id' => $class_id]);
+                $r = callApi('1.0/album/create', ['user_id' => $user_id, 'class_id' => $class_id, 'template_id' => $template_id]);
                 if ($r->status == 'success') {
                     $album_id = $r->result->id;
-                    Session::put('album_id', $album_id); 
-                    var_dump(Session::all());exit;
                 } else {
                     $result['status'] = 'err';
                     $result['msg'] = $r->message;
@@ -76,16 +73,18 @@ class AjaxController extends BaseController
             $res = callApi('1.0/image/create', [
                 'user_id'   =>  $user_id,
                 'album_id'  =>  $album_id,
-                'source'    =>  $source
+                'source'    =>  $source,
+                'template_id'   =>  $template_id
                 ]);
 
             if ($res->status == 'success') {
                 $result['status'] = 'success';
                 $result['result'] = $res->result;
+                $result['album_id'] = $album_id;
                 echo json_encode($result);exit;
             } else {
                 $result['status'] = 'err';
-                $result['msg'] = '保存图片失败';
+                $result['msg'] = $res->message;
                 echo json_encode($result);exit;
             }
         } catch (Exception $e) {
@@ -96,6 +95,48 @@ class AjaxController extends BaseController
 
         echo json_encode($result);exit;
     }
+    
+    public function del_image()
+    {
+        $ids = Input::get('ids', '');
+        $ids = trim($ids, ',');
+        $user_id = Cookie::get('user_id', 0); 
+        $user_id = 9;//TODO
+        
+        $res = callApi('1.0/my/del/image', ['user_id' => $user_id, 'ids' => $ids]);
+        $result = [];
+        if ($res->status == 'success') {
+            $result['status'] = 'success';
+        } else {
+            $result['status'] = 'err';
+            $result['msg'] = $res->message;
+        }
 
+        echo json_encode($result);exit;
+    }
+
+    public function createOrder()
+    {
+        $params = Input::all();
+        $params['user_id'] = Cookie::get('user_id', 0);
+        $params['user_id'] = 9;//TODO
+        
+        $result = [];
+        try { 
+            $data = callApi('1.0/my/create/order', $params);
+
+            if ($data->status == 'success') {
+                $result['status'] = 'success';
+            } else {
+                $result['status'] = 'err';
+                $result['msg'] = $data->message;
+            }
+        } catch (Exception $e) {
+            $result['status'] = 'err';
+            $result['msg'] = '订单创建失败';
+        }
+
+        echo json_encode($result);exit;
+    }
 }
 

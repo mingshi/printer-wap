@@ -5,6 +5,7 @@
 <input type="hidden" name="image_id" value="{{ $data->image->id }}" />
 <input type="hidden" name="template_id" value="{{ $data->template->id }}" />
 <input type="hidden" name="class_id" value="{{ $data->class->id }}" />
+<input type="hidden" name="album_id" value="{{ $album_id }}" />
 <div id='editor'></div>
 <div class="image-tools" id="image-tools">
     <a href="javascript:;" class="file">
@@ -180,17 +181,21 @@ $(function() {
         var template_id = $("input[name='template_id']").val();
         var class_id = $("input[name='class_id']").val();
         var image_data = $('#template').attr('src'); 
+        var album_id = $("input[name='album_id']").val();
 
         show_loading();
         $.ajax({
             url:"{{ URL::route('saveImage') }}",
             type: 'POST',
             dataType: 'json',
-            data: {'image_id': image_id, 'template_id': template_id, 'class_id': class_id, 'image_data': image_data}
+            data: {'image_id': image_id, 'template_id': template_id, 'class_id': class_id, 'image_data': image_data, 'album_id': album_id}
         }).done(function(result){
             hide_loading();
             if (result.status == 'success') {
                 show_alert('保存成功');
+                setTimeout(function(){
+                    window.location.href = "{{ URL::route('templateInfo')}}" + '?id=' + template_id + '&album_id=' + result.album_id;
+                }, 2);
             } else {
                 alert(result.msg);
                 return false;

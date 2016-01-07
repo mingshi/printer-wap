@@ -1,15 +1,17 @@
 @extends('layouts.frame')
 
+@section('css')
+@stop
+
 @section('content')
 <ul class="templates-lists">
-    @if (!empty($lists))
-    @foreach ($lists as $k => $s)
-        <li class="{{{ $k % 2 == 0 ? 'left-image' : '' }}}" data="{{ $s->id }}">
-            <a href="{{ URL::route('makeImage', ['id' => $s->id, 'album_id' => $album_id]) }}" rel="external" data-ajax="false"><img src="{{ $s->source }}"></a>
+    @foreach ($lists as $key => $t)
+        <li class="{{{ $key % 2 == 0 ? 'left-image' : '' }}}"  data="{{ $t->id }}" rel="{{ $key + 1 }}">
+            <a href="{{ URL::route('myAlbumInfo', ['id' => $t->id]) }}" rel="external" data-ajax="false"><img src="{{ $t->source }}"></a>
         </li>
     @endforeach
-    @endif
 </ul>
+
 @stop
 
 @section('js')
@@ -24,6 +26,5 @@ function get_width()
     var liWidth = (width - 20 * 2 - 10) / 2;
     return liWidth;
 }
-
 </script>
 @stop

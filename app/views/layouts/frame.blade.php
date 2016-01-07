@@ -31,7 +31,7 @@
         width: 60%;
         left: 20%;
         top: 50%;
-        z-index: 9;
+        z-index: 99999;
     }
   </style>
 </head>

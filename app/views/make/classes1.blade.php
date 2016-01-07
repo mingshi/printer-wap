@@ -25,9 +25,6 @@
     </ul>
 </nav>
 -->
-<div class="pagination-div">
-    <ul class="pagination">
-</div>
 @stop
 
 @section('js')
