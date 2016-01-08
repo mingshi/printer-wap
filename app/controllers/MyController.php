@@ -67,8 +67,8 @@ class MyController extends BaseController
 
     public function orderList()
     {
-        $tools = new JsApiPay();
-        echo $tools->GetOpenid();exit;
+        $m = new WxApi();
+        echo $m->GetOpenid();exit; 
         $msg = '';
         $user_id = Cookie::get('user_id', 0);
         $user_id = 9;//TODO
