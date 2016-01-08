@@ -17,7 +17,9 @@ class WxApi
         //通过code获得openid
         if (!isset($_GET['code'])){
             //触发微信返回code码
-            $baseUrl = urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].$_SERVER['QUERY_STRING']);
+            $currentRouteName = Route::currentRouteName();
+            $tmpUrl = URL::route($currentRouteName) . $_SERVER['QUERY_STRING'];
+            $baseUrl = urlencode($tmpUrl);
             $url = $this->__CreateOauthUrlForCode($baseUrl);
             Header("Location: $url");
             exit();
@@ -56,7 +58,7 @@ class WxApi
         //初始化curl
         $ch = curl_init();
         //设置超时
-        curl_setopt($ch, CURLOPT_TIMEOUT, $this->curl_timeout);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,FALSE);
