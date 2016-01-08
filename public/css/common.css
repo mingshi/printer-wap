@@ -424,3 +424,30 @@ div.more {
     color: #3d95b3;
     text-align: right;
 }
+
+table.order-list {
+    width: 100%;
+}
+
+table.order-list tbody {
+    padding: 30px 15px 30px 15px;
+    border-bottom: 1px solid #EFEEF6;
+    display: block;
+}
+
+table.order-list td {
+    text-shadow: none !important;
+    color: #EFEEF6;
+    font-size: 15px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.payBtn {
+    display: block;
+    border:1px solid #EFEEF6;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fac355;
+    color: #FFF !important;
+}

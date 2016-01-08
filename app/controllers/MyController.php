@@ -61,5 +61,30 @@ class MyController extends BaseController
             'pageTitle' =>  '相册详情'
         ]);
     }
+
+    public function orderList()
+    {
+        $msg = '';
+        $user_id = Cookie::get('user_id', 0);
+        $user_id = 9;//TODO
+
+        $res = [];
+        $data = callApi('1.0/my/order/list', ['user_id' =>  $user_id]);
+        if ($data->status == 'success') {
+            if (empty($data->result)) {
+                $msg = '没有数据';
+            } else {
+                $res = $data->result;
+            }
+        } else {
+            $msg = $data->message;
+        }
+        
+        return View::make('my.orderList', [
+            'msg'   =>  $msg,
+            'data'  =>  $res,
+            'pageTitle' =>  '订单列表',
+        ]);
+    }
 }
 
