@@ -63,8 +63,6 @@ class MyController extends BaseController
 
     public function orderList()
     {
-        $m = new WxApi();
-        echo $m->GetOpenid();exit; 
         $msg = '';
         $user_id = Cookie::get('user_id', 0);
         $user_id = 9;//TODO
