@@ -138,5 +138,31 @@ class AjaxController extends BaseController
 
         echo json_encode($result);exit;
     }
+    
+    public function createPay()
+    {
+        $id = Input::get('id', 0);
+        $user_id = Cookie::get('user_id', 0);
+        $m = new WxApi();
+        $openid = $m->GetOpenid();
+
+        $result = [];
+        try {
+            $res = callApi('1.0/pay/create', ['order_id' => $id, 'user_id' => $user_id, 'open_id' => $openid]);
+            if ($res->status == 'success') {
+                $result['status']  = 'success';
+                $result['result']  = $res->result;
+                echo json_encode($result);exit;
+            } else {
+                $result['status'] = 'err';
+                $result['msg'] = $res->message;
+                echo json_encode($result);exit;
+            }
+        } catch (Exception $e) {
+            $result['status']  = 'err';
+            $result['message'] = '创建支付订单出错';
+            echo json_encode($result);exit;           
+        }
+    } 
 }
 

@@ -42,7 +42,7 @@
     </tr>
     <tr>
         <td>支付状态：</td>
-        <td>@if ($d->pay_status == 1){{ $d->pay_status_info }}@else<a class="payBtn">立即支付</a> @endif</td>
+        <td>@if ($d->pay_status == 1){{ $d->pay_status_info }}@else<a class="payBtn" data="{{ $d->id }}">立即支付</a> @endif</td>
     </tr>
 </tbody>
 @endforeach
@@ -50,4 +50,52 @@
 @stop
 
 @section('js')
+<script type="text/javascript">
+$(function(){
+    $('a.payBtn').each(function() {
+        $(this).click(function() {
+            var id = $(this).attr('data');
+            $.ajax({ 
+                url: "{{ URL::route('ajaxCreatePay') }}",
+                type: 'POST',
+                dataType: 'json',
+                data: {'id': id}
+            }).done(function(result){
+                if (result.status == 'success') {
+    				callpay(result.result);           
+                } else {
+                    show_alert(result.msg);
+                    return false;
+                } 
+            });
+        });
+    });
+
+	function jsApiCall(data)
+    {
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',
+            data,
+			function(res){
+                WeixinJSBridge.log(res.err_msg);
+                alert(res.err_code+res.err_desc+res.err_msg);
+            }
+        );
+    }
+
+    function callpay()
+    {
+        if (typeof WeixinJSBridge == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }else if (document.attachEvent){
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }else{
+            jsApiCall(data);
+        }
+    }
+});
+</script>
 @stop

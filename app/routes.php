@@ -45,3 +45,4 @@ Route::any('/ajax/get_images', ['as' => 'getImages', 'uses' => 'AjaxController@g
 Route::any('/ajax/save', ['as' => 'saveImage', 'uses' => 'AjaxController@save']);
 Route::any('/ajax/del_image', ['as' => 'delImage', 'uses' => 'AjaxController@del_image']);
 Route::any('/ajax/createOrder', ['as' => 'ajaxCreateOrder', 'uses' => 'AjaxController@createOrder']);
+Route::any('/ajax/createPay', ['as' => 'ajaxCreatePay', 'uses' => 'AjaxController@createPay']);
