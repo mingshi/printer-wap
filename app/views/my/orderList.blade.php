@@ -83,7 +83,7 @@ $(function(){
         );
     }
 
-    function callpay()
+    function callpay(data)
     {
         if (typeof WeixinJSBridge == "undefined"){
             if( document.addEventListener ){
