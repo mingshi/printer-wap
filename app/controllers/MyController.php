@@ -11,7 +11,6 @@ class MyController extends BaseController
     public function albumList()
     {
         $user_id = Cookie::get('user_id', 0);
-        $user_id = 9;//TODO
 
         $msg = '';
         $lists = [];
@@ -40,7 +39,6 @@ class MyController extends BaseController
     {
         $msg = '';
         $user_id = Cookie::get('user_id', 0);
-        $user_id = 9;//TODO;
         $album_id = Input::get('id', 0);
 
         $res = [];
@@ -65,7 +63,6 @@ class MyController extends BaseController
     {
         $msg = '';
         $user_id = Cookie::get('user_id', 0);
-        $user_id = 9;//TODO
 
         $res = [];
         $data = callApi('1.0/my/order/list', ['user_id' =>  $user_id]);

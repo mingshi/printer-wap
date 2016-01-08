@@ -51,7 +51,6 @@ class AjaxController extends BaseController
         file_put_contents($path, $blob);
 
         $user_id = Cookie::get('user_id', 0);
-        $user_id = 9;//TODO 测试
         if (empty($album_id)) {
             try {
                 $r = callApi('1.0/album/create', ['user_id' => $user_id, 'class_id' => $class_id, 'template_id' => $template_id]);
@@ -101,7 +100,6 @@ class AjaxController extends BaseController
         $ids = Input::get('ids', '');
         $ids = trim($ids, ',');
         $user_id = Cookie::get('user_id', 0); 
-        $user_id = 9;//TODO
         
         $res = callApi('1.0/my/del/image', ['user_id' => $user_id, 'ids' => $ids]);
         $result = [];
@@ -119,7 +117,6 @@ class AjaxController extends BaseController
     {
         $params = Input::all();
         $params['user_id'] = Cookie::get('user_id', 0);
-        $params['user_id'] = 9;//TODO
         
         $result = [];
         try { 
@@ -143,7 +140,6 @@ class AjaxController extends BaseController
     {
         $id = Input::get('id', 0);
         $user_id = Cookie::get('user_id', 0);
-        $user_id = 9;//TODO
         $openid = Cookie::get('open_id', '');
         $result = [];
         try {

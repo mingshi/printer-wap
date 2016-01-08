@@ -12,7 +12,6 @@ class OrderController extends BaseController
     public function create()
     {
         $user_id = Cookie::get('user_id', 0);
-        $user_id = 9;//TODO
         $album_id = Input::get('album_id', 0);
 
         $user_info = [];
