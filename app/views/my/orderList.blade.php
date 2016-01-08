@@ -83,6 +83,7 @@ $(function(){
                     window.location.reload();
                 } else {
                     show_alert('支付失败');
+                    window.location.reload();
                     return false;
                 }
             }
