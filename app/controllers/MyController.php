@@ -6,10 +6,6 @@
  * @link
  * @Auth        :   Mingshi <fivemingshi@gmail.com>
  */
-
-require_once(app_path() . '/wxpay/lib/WxPay.Api.php');
-require_once(app_path() . '/wxpay/example/WxPay.JsApiPay.php');
-
 class MyController extends BaseController
 {
     public function albumList()
