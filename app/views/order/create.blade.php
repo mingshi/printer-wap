@@ -42,7 +42,7 @@ $(function() {
         }).done(function(result){
             if (result.status == 'success') {
                 show_alert('创建成功');
-                window.location.href = "{{ URL::route('orderList') }}";
+                window.location.href = "{{ URL::route('orderList') }}/";
             } else {
                 show_alert(result.msg);
                 return false;
