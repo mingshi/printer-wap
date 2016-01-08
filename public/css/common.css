@@ -322,6 +322,7 @@ ul.album-info li img#select {
 	color: #EFEEF6;
 	border: none;
 	border-bottom: 1px solid;
+    border-radius: 0 !important;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
