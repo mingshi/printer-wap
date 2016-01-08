@@ -78,7 +78,13 @@ $(function(){
             data,
 			function(res){
                 WeixinJSBridge.log(res.err_msg);
-                alert(res.err_code+res.err_desc+res.err_msg);
+                if(res.err_msg == "get_brand_wcpay_request：ok" ) {
+                    show_alert('支付成功');
+                    window.location.reload();
+                } else {
+                    show_alert('支付失败');
+                    return false;
+                }
             }
         );
     }
