@@ -17,7 +17,7 @@
 @else
 <input type="text" name="address" class="order-input" placeholder="请填写详细地址" data-role="none" value="{{ @$user->address }}" />
 @endif
-<label class="input-label" data-role="none">购买份数:</label><input style="float:left; width: 81%;" type="tel" name="quantity" class="order-input"  data-role="none" value="1" />
+<label class="input-label" data-role="none">购买份数:</label><input style="float:left; width: 67%;" type="tel" name="quantity" class="order-input"  data-role="none" value="1" />
 
 <div class="image-tools">
     <a id="submit-order">确认下单</a>
