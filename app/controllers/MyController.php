@@ -7,6 +7,9 @@
  * @Auth        :   Mingshi <fivemingshi@gmail.com>
  */
 
+require_once(app_path() . '/wxpay/lib/WxPay.Api.php');
+require_once(app_path() . '/wxpay/example/WxPay.JsApiPay.php');
+
 class MyController extends BaseController
 {
     public function albumList()
@@ -64,6 +67,8 @@ class MyController extends BaseController
 
     public function orderList()
     {
+        $tools = new JsApiPay();
+        echo $tools->GetOpenid();exit;
         $msg = '';
         $user_id = Cookie::get('user_id', 0);
         $user_id = 9;//TODO
