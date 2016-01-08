@@ -143,9 +143,8 @@ class AjaxController extends BaseController
     {
         $id = Input::get('id', 0);
         $user_id = Cookie::get('user_id', 0);
-        $m = new WxApi();
-        $openid = $m->GetOpenid();
-
+        $user_id = 9;//TODO
+        $openid = Cookie::get('open_id', '');
         $result = [];
         try {
             $res = callApi('1.0/pay/create', ['order_id' => $id, 'user_id' => $user_id, 'open_id' => $openid]);

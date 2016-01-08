@@ -34,7 +34,8 @@ class WxController extends BaseController
             if ($data->status == 'success') {
                 if (!empty($data->result)) {
                     $id_cookie = Cookie::forever('user_id', $data->result->id);
-                    return Redirect::to($uri)->withCookie($id_cookie);
+                    $open_id_cookie = Cookie::forever('open_id', $open_id);
+                    return Redirect::to($uri)->withCookie($id_cookie)->withCookie($open_id_cookie);;
                 } else {
                     return Redirect::route('forbidden');
                 }
